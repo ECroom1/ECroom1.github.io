@@ -27,6 +27,7 @@ function main() {
   drawPlatforms();
   drawFakePlatforms();
   drawBadPlatforms();
+  drawSpikes();
   drawProjectiles();
   drawCannons();
   drawCollectables();
@@ -39,6 +40,7 @@ function main() {
   keyboardControlActions(); //keyboard controls.
   projectileCollision(); //checks if the player is getting hit by a projectile in the next frame
   badPlatformCollision(); //checks if the player is touching a bad platform
+  spikeCollision(); //checks if the player is touching a spike
   collectablesCollide(); //checks if player has touched a collectable
 
   animate(); //this changes halle's picture to the next frame so it looks animated.
@@ -493,6 +495,37 @@ function drawBadPlatforms() {
   }
 }
 
+function drawSpikes() {
+  for (var i = 0; i < spikes.length; i++) {
+    const { color, x, y, width, height } = spikes[i];
+    // Draw a triangle pointing upward
+    ctx.fillStyle = color;
+    ctx.beginPath();
+    ctx.moveTo(x + width / 2, y); // top point
+    ctx.lineTo(x + width, y + height); // bottom right
+    ctx.lineTo(x, y + height); // bottom left
+    ctx.closePath();
+    ctx.fill();
+  }
+}
+
+function spikeCollision() {
+  if (currentAnimationType === animationTypes.frontDeath) {
+    return;
+  }
+  for (var i = 0; i < spikes.length; i++) {
+    if (
+      player.x + hitBoxWidth > spikes[i].x &&
+      player.x < spikes[i].x + spikes[i].width &&
+      player.y < spikes[i].y + spikes[i].height &&
+      player.y + hitBoxHeight > spikes[i].y
+    ) {
+      currentAnimationType = animationTypes.frontDeath;
+      frameIndex = 0;
+    }
+  }
+}
+
 function toggleGrid() {
   shouldDrawGrid = true;
 }
@@ -744,6 +777,16 @@ function createFakePlatform(x, y, width, height, color = "grey") {
 
 function createBadPlatform(x, y, width, height, color = "red") {
   badPlatforms.push({
+    x,
+    y,
+    width,
+    height,
+    color,
+  });
+}
+
+function createSpike(x, y, width = 40, height = 40, color = "orange") {
+  spikes.push({
     x,
     y,
     width,

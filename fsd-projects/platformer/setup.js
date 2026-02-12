@@ -75,6 +75,7 @@ let offsetY = 0;
 let platforms = [];
 let fakePlatforms = [];
 let badPlatforms = [];
+let spikes = [];
 let cannons = [];
 const cannonWidth = 118;
 const cannonHeight = 80;
