@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saints Museum Gallery</title>
+    <style>
+      :root {
+        --saints-gold: #d3a209;
+        --saints-black: #000;
+        --saints-white: #f6f6f6;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background:
+          radial-gradient(
+            circle at 20% 20%,
+            rgba(211, 162, 9, 0.15),
+            transparent 35%
+          ),
+          linear-gradient(135deg, #090909 0%, #0d0d0d 100%);
+        color: var(--saints-white);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 24px;
+      }
+
+      .hero {
+        width: 100%;
+        max-width: 1200px;
+        text-align: center;
+        margin-bottom: 24px;
+        border: 2px solid var(--saints-gold);
+        border-radius: 14px;
+        padding: 18px 16px;
+        background: rgba(0, 0, 0, 0.6);
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+      }
+
+      .hero h1 {
+        margin: 0 0 8px;
+        font-size: clamp(1.75rem, 3vw, 2.4rem);
+        letter-spacing: 1.1px;
+        color: var(--saints-gold);
+      }
+
+      .hero p {
+        margin: 0;
+        font-size: 1rem;
+        color: #ddd;
+      }
+
+      .home-btn {
+        display: inline-block;
+        margin-bottom: 12px;
+        padding: 8px 14px;
+        color: #090909;
+        background: var(--saints-gold);
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 700;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+        transition: transform 0.2s ease, background 0.2s ease;
+      }
+
+      .home-btn:hover {
+        transform: translateY(-2px);
+        background: #f7c731;
+      }
+
+      .gallery {
+        width: 100%;
+        max-width: 1200px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 14px;
+        align-items: stretch;
+      }
+
+      .card {
+        border: 2px solid rgba(211, 162, 9, 0.7);
+        border-radius: 12px;
+        overflow: hidden;
+        background: rgba(10, 10, 10, 0.75);
+        backdrop-filter: blur(3px);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 18px 30px rgba(0, 0, 0, 0.5);
+      }
+
+      .card img {
+        display: block;
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        filter: contrast(1.05) saturate(1.2);
+        cursor: zoom-in;
+      }
+
+      .caption {
+        padding: 10px;
+        color: #f4f4f4;
+        text-align: center;
+        font-size: 0.92rem;
+        background: rgba(0, 0, 0, 0.45);
+      }
+
+      .fleur {
+        position: absolute;
+        font-size: 5rem;
+        color: rgba(211, 162, 9, 0.15);
+        top: 6%;
+        right: 8%;
+        transform: rotate(15deg);
+        pointer-events: none;
+      }
+
+      @media (max-width: 640px) {
+        .hero {
+          padding: 14px;
+        }
+        .card img {
+          height: 150px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="hero">
+      <a class="home-btn" href="index.html">Home</a>
+      <h1>New Orleans Saints Museum Gallery</h1>
+      <p>
+        Explore a curated collection of moments in Saints history, styled as a
+        modern museum exhibit.
+      </p>
+    </div>
+
+    <div class="gallery">
+      <article class="card">
+        <img src="assets/IMG_6171.JPG" alt="Gallery artwork 1" />
+        <div class="caption">Exhibit 1: Champion Spirit</div>
+      </article>
+      <article class="card">
+        <img src="assets/IMG_6184.JPG" alt="Gallery artwork 2" />
+        <div class="caption">Exhibit 2: Bayou Roots</div>
+      </article>
+      <article class="card">
+        <img src="assets/IMG_6172.JPG" alt="Gallery artwork 3" />
+        <div class="caption">Exhibit 3: Black and Gold Pride</div>
+      </article>
+      <article class="card">
+        <img src="assets/IMG_6174.JPG" alt="Gallery artwork 4" />
+        <div class="caption">Exhibit 4: Saints Legacy</div>
+      </article>
+      <article class="card">
+        <img src="assets/IMG_6176.JPG" alt="Gallery artwork 5" />
+        <div class="caption">Exhibit 5: Historic Plays</div>
+      </article>
+      <article class="card">
+        <img src="assets/IMG_6179.JPG" alt="Gallery artwork 6" />
+        <div class="caption">Exhibit 6: Fan Culture</div>
+      </article>
+      <article class="card">
+        <img src="assets/IMG_6180.JPG" alt="Gallery artwork 7" />
+        <div class="caption">Exhibit 7: Championship Years</div>
+      </article>
+      <article class="card">
+        <img src="assets/IMG_6182.JPG" alt="Gallery artwork 8" />
+        <div class="caption">Exhibit 8: Iconic Moments</div>
+      </article>
+      <article class="card">
+        <img src="assets/IMG_6187.JPG" alt="Gallery artwork 9" />
+        <div class="caption">Exhibit 9: Crescent City Energy</div>
+      </article>
+      <article class="card">
+        <img src="assets/IMG_6189.JPG" alt="Gallery artwork 10" />
+        <div class="caption">Exhibit 10: Saints Forever</div>
+      </article>
+    </div>
+
+    <div class="fleur">⚜️</div>
+
+    <script>
+      const images = document.querySelectorAll(".card img");
+
+      function openFullscreen(element) {
+        if (element.requestFullscreen) {
+          element.requestFullscreen();
+        } else if (element.webkitRequestFullscreen) {
+          element.webkitRequestFullscreen();
+        } else if (element.msRequestFullscreen) {
+          element.msRequestFullscreen();
+        }
+      }
+
+      images.forEach((img) => {
+        img.addEventListener("click", () => {
+          openFullscreen(img);
+        });
+      });
+
+      document.addEventListener("fullscreenchange", () => {
+        const fsElement = document.fullscreenElement;
+        if (fsElement && fsElement.tagName === "IMG") {
+          fsElement.style.cursor = "zoom-out";
+          fsElement.style.maxHeight = "100vh";
+          fsElement.style.maxWidth = "100vw";
+        } else {
+          images.forEach((img) => {
+            img.style.cursor = "zoom-in";
+            img.style.maxWidth = "";
+            img.style.maxHeight = "";
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
